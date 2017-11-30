@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Amount Percentage</th>
+      <th>Creation Date</th>
+      <th>Registry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of advance$ | async">
+      <td>{{a.amount}}</td>
+      <td>{{a.amountPercentage}}</td>
+      <td>{{a.creationDate}}</td>
+      <td>{{a.registery}}</td>
+    </tr>
+  </tbody>
+</table>
