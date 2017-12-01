@@ -10,23 +10,30 @@ import { AdvanceComponent } from './advance/advance.component';
 import { advanceReducer } from './reducers/advance.reducer';
 import { AdvanceEffects } from './effects/advance.effects';
 
+import { EmployeeComponent } from './employee/employee.component';
+import { employeeReducer } from './reducers/employee.reducer';
+import { EmployeeEffects } from './effects/employee.effects';
+import { EmployeeService } from './employee/employee.service';
+
 import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdvanceComponent
+    AdvanceComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({ advance: advanceReducer }),
+    StoreModule.forRoot({ advance: advanceReducer, employee: employeeReducer}),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([AdvanceEffects])
+    EffectsModule.forRoot([AdvanceEffects, EmployeeEffects])
   ],
   providers: [
-    AdvanceService
+    AdvanceService,
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ import { Advance } from './../models/advance';
 import { AppState } from './../models/app-state';
 
 import * as advanceActions from '../actions/advance.actions';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-advance',
@@ -13,10 +14,10 @@ import * as advanceActions from '../actions/advance.actions';
   styleUrls: ['./advance.component.css']
 })
 export class AdvanceComponent implements OnInit {
-  displayedColumns = ['id'];
   advance$: Observable<Advance[]>;
-
-  constructor(private store: Store<AppState>) {}
+  private test$;
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit() {
     this.advance$ = this.store.select(state => state.advance);
