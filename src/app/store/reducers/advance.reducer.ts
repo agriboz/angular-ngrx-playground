@@ -1,4 +1,4 @@
-import * as fromAdvance from '../../actions/advance.actions';
+import * as fromAdvance from '../actions/advance.actions';
 import { Advance } from '../../models/advance';
 
 export interface AdvanceState {

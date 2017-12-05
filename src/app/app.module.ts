@@ -11,7 +11,7 @@ import { reducers } from './store';
 import { AdvanceEffects } from './effects/advance.effects';
 
 import { EmployeeComponent } from './employee/employee.component';
-import { employeeReducer } from './store/employee.reducer';
+import { employeeReducer } from './store/reducers/employee.reducer';
 import { EmployeeEffects } from './effects/employee.effects';
 import { EmployeeService } from './employee/employee.service';
 
