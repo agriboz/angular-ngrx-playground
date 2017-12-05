@@ -7,11 +7,11 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AdvanceService } from './advance/advance.service';
 import { AdvanceComponent } from './advance/advance.component';
-import { advanceReducer } from './reducers/advance.reducer';
+import { reducers } from './store';
 import { AdvanceEffects } from './effects/advance.effects';
 
 import { EmployeeComponent } from './employee/employee.component';
-import { employeeReducer } from './reducers/employee.reducer';
+import { employeeReducer } from './store/employee.reducer';
 import { EmployeeEffects } from './effects/employee.effects';
 import { EmployeeService } from './employee/employee.service';
 
@@ -27,7 +27,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({ advance: advanceReducer, employee: employeeReducer}),
+    StoreModule.forRoot({ employee: employeeReducer }),
+    StoreModule.forFeature('advancesList', reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([AdvanceEffects, EmployeeEffects])
   ],

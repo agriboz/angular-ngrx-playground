@@ -8,6 +8,8 @@ import { AppState } from './../models/app-state';
 import * as advanceActions from '../actions/advance.actions';
 import { Employee } from '../models/employee';
 
+import * as fromStore from '../store';
+
 @Component({
   selector: 'app-advance',
   templateUrl: './advance.component.html',
@@ -15,17 +17,14 @@ import { Employee } from '../models/employee';
 })
 export class AdvanceComponent implements OnInit {
   advance$: Observable<Advance[]>;
-  private test$;
-  constructor(private store: Store<AppState>) {
+
+  constructor(private store: Store<fromStore.AdvancesState>) {
+
   }
 
   ngOnInit() {
-    this.advance$ = this.store.select(state => state.advance);
-    this.getAdvance();
-  }
-
-  getAdvance() {
-    this.store.dispatch(new advanceActions.LoadAdvanceAction());
+    // this.advance$ = this.store.select('advance');
+    this.advance$ = this.store.select(fromStore.getAllAdvances);
   }
 
 }

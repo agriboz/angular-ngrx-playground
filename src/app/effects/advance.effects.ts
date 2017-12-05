@@ -8,16 +8,10 @@ import { Store, Action } from '@ngrx/store';
 import * as advanceActions from '../actions/advance.actions';
 import * as employeeActions from '../actions/employee.actions';
 
-import 'rxjs/add/observable/of';
+
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/withLatestFrom';
-import 'rxjs/add/operator/takeUntil';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/combineLatest';
-import 'rxjs/add/operator/do';
+
 @Injectable()
 export class AdvanceEffects {
   private test;
@@ -26,7 +20,7 @@ export class AdvanceEffects {
               private advanceService: AdvanceService,
               private employeeService: EmployeeService) { }
 
-  @Effect() loadAdvance$ = this.actions$
+  /* @Effect() loadAdvance$ = this.actions$
   .ofType(advanceActions.LOAD_ADVANCE)
     .switchMap(() => {
       return this.employeeService.loadEmployee()
@@ -37,6 +31,12 @@ export class AdvanceEffects {
           }
         });
     })
+    .map((advance) =>  new advanceActions.LoadAdvanceSuccessAction(advance)); */
+
+  @Effect() loadAdvance$ = this.actions$
+    .ofType(advanceActions.LOAD_ADVANCE)
+    .switchMap((data) => this.employeeService.loadEmployee())
+    .switchMap((data) => this.advanceService.loadAdvance(data['id']))
     .map((advance) =>  new advanceActions.LoadAdvanceSuccessAction(advance));
 
 }
