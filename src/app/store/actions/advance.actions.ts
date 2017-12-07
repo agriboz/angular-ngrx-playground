@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Advance } from '../models/advance';
+import { Advance } from '../../models/advance';
 
 export const LOAD_ADVANCE = 'LOAD_ADVANCE';
 export const LOAD_ADVANCE_SUCCESS = 'LOAD_ADVANCE_SUCCESS';

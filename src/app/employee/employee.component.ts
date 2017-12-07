@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AppState } from '../models/app-state';
 import { Employee } from './../models/employee';
-import * as employeeActions from '../actions/employee.actions';
+import * as employeeActions from '../store/actions/employee.actions';
 
 @Component({
   selector: 'app-employee',

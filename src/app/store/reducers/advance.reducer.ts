@@ -8,10 +8,7 @@ export interface AdvanceState {
 }
 
 export const initialState: AdvanceState = {
-  data: [
-    { amount: 1 },
-    { amount: 2 }
-  ],
+  data: [],
   loaded: false,
   loading: false
 };
